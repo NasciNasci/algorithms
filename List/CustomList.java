@@ -1,5 +1,10 @@
 package List;
 
+/**
+ * CustomList created using as base the List structure algorithm having a header
+ * node as primary pointer to the other ones. The first value is maintained
+ * empty to keep things easier while removing the elements.
+ */
 public class CustomList<T> {
     private class Node {
         private Node node;
@@ -17,6 +22,14 @@ public class CustomList<T> {
         this.header = null;
     }
 
+    /**
+     * Method responsible for adding new elements to the structure. It is composed by
+     * three major steps:
+     * 
+     * 1) Consulting if header element is empty and filling the first node value; 
+     * 2) Iterating over elements and stopping at the last one; 
+     * 3) Instantiating the last node and defining its value.
+     */
     public void add(T value) {
         Node actual = this.header;
         if (actual == null) {
@@ -35,6 +48,14 @@ public class CustomList<T> {
         actual.node.value = value;
     }
 
+    /**
+     * Method responsible for retrieving the added elements from the structure. It is
+     * composed by three major steps:
+     * 
+     * 1) Consulting if header element is empty;
+     * 2) Iterating over elements and stopping at the position passed; 
+     * 3) Checking if the last element has or has not defined value and returning it.
+     */
     public T retrieve(int index) {
         Node actual = this.header;
         if (actual == null) {
@@ -57,6 +78,14 @@ public class CustomList<T> {
         return actual == null ? null : actual.value;
     }
 
+    /**
+     * Method responsible for changing the value of a certain node in the
+     * structure. It is composed by three major steps:
+     * 
+     * 1) Consulting if header element is empty;
+     * 2) Iterating over elements and stopping at the position passed; 
+     * 3) Checking if the last element is or is not defined and changing its value.
+     */
     public void change(int index, T value) {
         Node actual = this.header;
         if (actual == null) {
@@ -79,6 +108,14 @@ public class CustomList<T> {
         actual.value = value;
     }
 
+    /**
+     * Method responsible for removing a certain node from the
+     * structure. It is composed by three major steps:
+     * 
+     * 1) Consulting if header element is empty;
+     * 2) Iterating over elements and stopping at the position passed; 
+     * 3) Checking if the last element is or is not defined and removing it.
+     */
     public void remove(int index) {
         Node actual = this.header;
         if (actual == null) {
