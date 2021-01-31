@@ -1,8 +1,8 @@
 package List;
 
 public class CustomList<T> {
-    private class Node<T> {
-        private Node<T> node;
+    private class Node {
+        private Node node;
         private T value;
 
         public Node() {
@@ -11,47 +11,76 @@ public class CustomList<T> {
         }
     }
 
-    private Node<T> header;
+    private Node header;
 
     public CustomList() {
         this.header = null;
     }
 
     public void add(T value) {
-        if (this.header == null) {
-            this.header = new Node<>();
-            this.header.value = value;
+        Node actual = this.header;
+        if (actual == null) {
+            this.header = new Node();
+            this.header.node = new Node();
+            this.header.node.value = value;
             return;
         }
 
-        Node<T> actual = this.header;
+        actual = actual.node;
         while (actual.node != null) {
             actual = actual.node;
         }
 
-        actual.node = new Node<>();
+        actual.node = new Node();
         actual.node.value = value;
     }
 
     public T retrieve(int index) {
-        Node<T> actual = this.header;
+        Node actual = this.header;
         if (actual == null) {
             return null;
         }
 
+        actual = actual.node;
         for (int i = 0; i < index; i++) {
             if (actual == null) {
                 break;
             }
 
             actual = actual.node;
+        }
+
+        if (actual == null) {
+            return null;
         }
 
         return actual == null ? null : actual.value;
     }
 
     public void change(int index, T value) {
-        Node<T> actual = this.header;
+        Node actual = this.header;
+        if (actual == null) {
+            return;
+        }
+
+        actual = actual.node;
+        for (int i = 0; i < index; i++) {
+            if (actual == null) {
+                break;
+            }
+
+            actual = actual.node;
+        }
+
+        if (actual == null) {
+            return;
+        }
+
+        actual.value = value;
+    }
+
+    public void remove(int index) {
+        Node actual = this.header;
         if (actual == null) {
             return;
         }
@@ -64,10 +93,10 @@ public class CustomList<T> {
             actual = actual.node;
         }
 
-        actual.value = value;
-    }
+        if (actual == null) {
+            return;
+        }
 
-    public void remove(int index) {
-
+        actual.node = actual.node == null ? null : actual.node.node;
     }
 }
