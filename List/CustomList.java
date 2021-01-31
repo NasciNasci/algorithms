@@ -6,9 +6,9 @@ package List;
  * empty to keep things easier while removing the elements.
  */
 public class CustomList<T> {
-    private class Node {
-        private Node node;
-        private T value;
+    protected class Node {
+        public Node node;
+        public T value;
 
         public Node() {
             this.node = null;
@@ -16,10 +16,12 @@ public class CustomList<T> {
         }
     }
 
-    private Node header;
+    protected Node header;
+    protected int size;
 
     public CustomList() {
         this.header = null;
+        this.size = 0;
     }
 
     /**
@@ -46,6 +48,7 @@ public class CustomList<T> {
 
         actual.node = new Node();
         actual.node.value = value;
+        this.size++;
     }
 
     /**
@@ -75,7 +78,7 @@ public class CustomList<T> {
             return null;
         }
 
-        return actual == null ? null : actual.value;
+        return actual.value;
     }
 
     /**
@@ -135,5 +138,6 @@ public class CustomList<T> {
         }
 
         actual.node = actual.node == null ? null : actual.node.node;
+        this.size--;
     }
 }
