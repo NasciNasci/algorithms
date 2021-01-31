@@ -13,7 +13,8 @@ public class CustomListTest {
         customList.add("Primeiro");
         customList.add("Segundo");
 
-        assertEquals(0, 0);
+        assertEquals("Primeiro", customList.retrieve(0));
+        assertEquals("Segundo", customList.retrieve(1));
     }
 
     @Test
