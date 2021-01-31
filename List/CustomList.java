@@ -33,12 +33,38 @@ public class CustomList<T> {
         actual.node.value = value;
     }
 
-    public void retrieve(int index) {
+    public T retrieve(int index) {
+        Node<T> actual = this.header;
+        if (actual == null) {
+            return null;
+        }
 
+        for (int i = 0; i < index; i++) {
+            if (actual == null) {
+                break;
+            }
+
+            actual = actual.node;
+        }
+
+        return actual == null ? null : actual.value;
     }
 
     public void change(int index, T value) {
+        Node<T> actual = this.header;
+        if (actual == null) {
+            return;
+        }
 
+        for (int i = 0; i < index; i++) {
+            if (actual == null) {
+                break;
+            }
+
+            actual = actual.node;
+        }
+
+        actual.value = value;
     }
 
     public void remove(int index) {
