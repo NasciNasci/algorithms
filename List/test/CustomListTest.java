@@ -1,27 +1,30 @@
 package List.test;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.Test;
-import junit.framework.*;
+
 import List.CustomList;
 
-class CustomListTest extends TestCase {
+public class CustomListTest {
     @Test
-    void addTest() {
+    public void addTest() {
         CustomList<String> customList = new CustomList<>();
         customList.add("Primeiro");
         customList.add("Segundo");
 
+        assertEquals(0, 0);
     }
 
     @Test
-    void retrieveTest() {
+    public void retrieveTest() {
     }
 
     @Test
-    void changeTest() {
+    public void changeTest() {
     }
 
     @Test
-    void removeTest() {
+    public void removeTest() {
     }
 }
