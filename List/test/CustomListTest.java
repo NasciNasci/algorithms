@@ -29,6 +29,17 @@ public class CustomListTest {
 
     @Test
     public void changeTest() {
+        CustomList<Float> customList = new CustomList<>();
+        customList.add(Float.valueOf(0.12f));
+        customList.add(Float.valueOf(12.32f));
+        customList.add(Float.valueOf(321.75f));
+        customList.add(Float.valueOf(1.2345f));
+
+        customList.change(0, Float.valueOf(0.45f));
+        customList.change(3, Float.valueOf(255.0f));
+
+        assertEquals(Float.valueOf(0.45f), customList.retrieve(0));
+        assertEquals(Float.valueOf(255.0f), customList.retrieve(3));
     }
 
     @Test

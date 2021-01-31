@@ -51,7 +51,20 @@ public class CustomList<T> {
     }
 
     public void change(int index, T value) {
+        Node<T> actual = this.header;
+        if (actual == null) {
+            return;
+        }
 
+        for (int i = 0; i < index; i++) {
+            if (actual == null) {
+                break;
+            }
+
+            actual = actual.node;
+        }
+
+        actual.value = value;
     }
 
     public void remove(int index) {
