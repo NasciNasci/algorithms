@@ -19,6 +19,12 @@ public class CustomListTest {
 
     @Test
     public void retrieveTest() {
+        CustomList<Integer> customList = new CustomList<>();
+        customList.add(Integer.valueOf(0));
+        customList.add(Integer.valueOf(1));
+
+        assertEquals(Integer.valueOf(0), customList.retrieve(0));
+        assertEquals(Integer.valueOf(1), customList.retrieve(1));
     }
 
     @Test
