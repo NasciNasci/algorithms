@@ -1,8 +1,8 @@
-package Tree.test;
+package DataStructures.Tree.test;
 
 import org.junit.Test;
 
-import Tree.BinaryTree;
+import DataStructures.Tree.BinaryTree;
 
 public class BinaryTreeTest {
     @Test

@@ -1,6 +1,6 @@
-package Queue;
+package DataStructures.Queue;
 
-import List.CustomList;
+import DataStructures.List.CustomList;
 
 /**
  * Queue created using as base the Queue structure algorithm and the CustomList.
