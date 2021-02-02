@@ -1,6 +1,6 @@
-package Stack;
+package DataStructures.Stack;
 
-import List.CustomList;
+import DataStructures.List.CustomList;
 
 /**
  * Stack created using the Stack structure algorithm as base and the CustomList.
