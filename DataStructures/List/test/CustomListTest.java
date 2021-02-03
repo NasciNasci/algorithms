@@ -1,10 +1,10 @@
-package DataStructures.List.test;
+package dataStructures.List.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.Test;
 
-import DataStructures.List.CustomList;
+import dataStructures.List.CustomList;
 
 public class CustomListTest {
     @Test

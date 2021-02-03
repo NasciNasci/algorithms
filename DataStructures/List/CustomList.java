@@ -1,4 +1,4 @@
-package DataStructures.List;
+package dataStructures.List;
 
 /**
  * CustomList created using as base the List structure algorithm having a header
