@@ -1,6 +1,6 @@
-package DataStructures.Queue;
+package dataStructures.Queue;
 
-import DataStructures.List.CustomList;
+import dataStructures.List.CustomList;
 
 /**
  * Queue created using as base the Queue structure algorithm and the CustomList.
@@ -9,7 +9,7 @@ import DataStructures.List.CustomList;
  */
 public class Queue<T> extends CustomList<T> {
     public void enqueue(T value) {
-        super.add(value);
+        super.insert(value);
     }
 
     public T retrieve(int index) {

@@ -1,10 +1,10 @@
-package DataStructures.Queue.test;
+package dataStructures.Queue.test;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import DataStructures.Queue.Queue;
+import dataStructures.Queue.Queue;
 
 public class QueueTest {
     @Test

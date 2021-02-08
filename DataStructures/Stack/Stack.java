@@ -1,6 +1,6 @@
-package DataStructures.Stack;
+package dataStructures.Stack;
 
-import DataStructures.List.CustomList;
+import dataStructures.List.CustomList;
 
 /**
  * Stack created using the Stack structure algorithm as base and the CustomList.
@@ -9,11 +9,11 @@ import DataStructures.List.CustomList;
  */
 public class Stack<T> extends CustomList<T> {
     public void push(T value) {
-        this.add(value);
+        this.insert(value);
     }
 
     public void pop() {
-        this.remove(this.size);
+        this.remove(this.size - 1);
     }
 
     public T retrieve(int index) {

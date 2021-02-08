@@ -1,10 +1,10 @@
-package DataStructures.Tree.test;
+package dataStructures.Tree.test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.Test;
 
-import DataStructures.Tree.BinaryTree;
+import dataStructures.Tree.BinaryTree;
 
 public class BinaryTreeTest {
     @Test

@@ -1,10 +1,5 @@
-package DataStructures.List;
+package dataStructures.List;
 
-/**
- * CustomList created using as base the List structure algorithm having a header
- * node as primary pointer to the other ones. The first value is maintained
- * empty to keep things easier while removing the elements.
- */
 public class CustomList<T> {
     protected class Node {
         public Node node;
@@ -16,128 +11,84 @@ public class CustomList<T> {
         }
     }
 
-    protected Node header;
+    protected Node head;
     protected int size;
 
     public CustomList() {
-        this.header = null;
+        this.head = null;
         this.size = 0;
     }
 
-    /**
-     * Method responsible for adding new elements to the structure. It is composed
-     * by three major steps:
-     * 
-     * 1) Consulting if header element is empty and filling the first node value; 2)
-     * Iterating over elements and stopping at the last one; 3) Instantiating the
-     * last node and defining its value.
-     */
-    public void add(T value) {
-        Node actual = this.header;
-        if (actual == null) {
-            this.header = new Node();
-            this.header.node = new Node();
-            this.header.node.value = value;
-            return;
-        }
-
-        actual = actual.node;
-        while (actual.node != null) {
-            actual = actual.node;
-        }
-
-        actual.node = new Node();
-        actual.node.value = value;
+    public void insert(T value) {
+        this.head = this.insert(value, this.head);
         this.size++;
     }
 
-    /**
-     * Method responsible for retrieving the added elements from the structure. It
-     * is composed by three major steps:
-     * 
-     * 1) Consulting if header element is empty; 2) Iterating over elements and
-     * stopping at the position passed; 3) Checking if the last element has or has
-     * not defined value and returning it.
-     */
+    private Node insert(T value, Node actualNode) {
+        if (actualNode == null) {
+            Node newNode = new Node();
+            newNode.value = value;
+
+            return newNode;
+        } else {
+            actualNode.node = this.insert(value, actualNode.node);
+        }
+
+        return actualNode;
+    }
+
     public T retrieve(int index) {
-        Node actual = this.header;
-        if (actual == null) {
-            return null;
-        }
-
-        actual = actual.node;
-        for (int i = 0; i < index; i++) {
-            if (actual == null) {
-                break;
-            }
-
-            actual = actual.node;
-        }
-
-        if (actual == null) {
-            return null;
-        }
-
-        return actual.value;
+        return this.retrieve(index, 0, this.head).value;
     }
 
-    /**
-     * Method responsible for changing the value of a certain node in the structure.
-     * It is composed by three major steps:
-     * 
-     * 1) Consulting if header element is empty; 2) Iterating over elements and
-     * stopping at the position passed; 3) Checking if the last element is or is not
-     * defined and changing its value.
-     */
+    private Node retrieve(int index, int actualIndex, Node actualNode) {
+        if (actualNode == null) {
+            return new Node();
+        } else if (this.isActualNodeTheSearched(index, actualIndex)) {
+            return actualNode;
+        } else {
+            actualNode = this.retrieve(index, actualIndex + 1, actualNode.node);
+        }
+
+        return actualNode;
+    }
+
     public void change(int index, T value) {
-        Node actual = this.header;
-        if (actual == null) {
-            return;
-        }
-
-        actual = actual.node;
-        for (int i = 0; i < index; i++) {
-            if (actual == null) {
-                break;
-            }
-
-            actual = actual.node;
-        }
-
-        if (actual == null) {
-            return;
-        }
-
-        actual.value = value;
+        this.head = this.change(value, index, 0, this.head);
     }
 
-    /**
-     * Method responsible for removing a certain node from the structure. It is
-     * composed by three major steps:
-     * 
-     * 1) Consulting if header element is empty; 2) Iterating over elements and
-     * stopping at the position passed; 3) Checking if the last element is or is not
-     * defined and removing it.
-     */
+    public Node change(T value, int index, int actualIndex, Node actualNode) {
+        if (actualNode == null) {
+            return new Node();
+        } else if (this.isActualNodeTheSearched(index, actualIndex)) {
+            actualNode.value = value;
+
+            return actualNode;
+        } else {
+            actualNode.node = this.change(value, index, actualIndex + 1, actualNode.node);
+        }
+
+        return actualNode;
+    }
+
     public void remove(int index) {
-        Node actual = this.header;
-        if (actual == null) {
-            return;
-        }
-
-        for (int i = 0; i < index; i++) {
-            if (actual == null) {
-                break;
-            }
-
-            actual = actual.node;
-        }
-
-        if (actual == null) {
-            return;
-        }
-
-        actual.node = actual.node == null ? null : actual.node.node;
+        this.head = this.remove(index, 0, this.head);
         this.size--;
+    }
+
+    private Node remove(int index, int actualIndex, Node actualNode) {
+        if (actualNode == null) {
+            return null;
+        } else if (this.isActualNodeTheSearched(index, actualIndex)) {
+            return actualNode.node;
+        } else {
+            actualNode.node = this.remove(index, actualIndex + 1, actualNode.node);
+        }
+
+        return actualNode;
+    }
+
+    private Boolean isActualNodeTheSearched(int index, int actualIndex) {
+        return actualIndex == index;
     }
 }

@@ -1,17 +1,17 @@
-package DataStructures.List.test;
+package dataStructures.List.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.Test;
 
-import DataStructures.List.CustomList;
+import dataStructures.List.CustomList;
 
 public class CustomListTest {
     @Test
-    public void addTest() {
+    public void insertTest() {
         CustomList<String> customList = new CustomList<>();
-        customList.add("Primeiro");
-        customList.add("Segundo");
+        customList.insert("Primeiro");
+        customList.insert("Segundo");
 
         assertEquals("Primeiro", customList.retrieve(0));
         assertEquals("Segundo", customList.retrieve(1));
@@ -20,8 +20,8 @@ public class CustomListTest {
     @Test
     public void retrieveTest() {
         CustomList<Integer> customList = new CustomList<>();
-        customList.add(Integer.valueOf(0));
-        customList.add(Integer.valueOf(1));
+        customList.insert(Integer.valueOf(0));
+        customList.insert(Integer.valueOf(1));
 
         assertEquals(Integer.valueOf(0), customList.retrieve(0));
         assertEquals(Integer.valueOf(1), customList.retrieve(1));
@@ -31,10 +31,10 @@ public class CustomListTest {
     @Test
     public void changeTest() {
         CustomList<Float> customList = new CustomList<>();
-        customList.add(Float.valueOf(0.12f));
-        customList.add(Float.valueOf(12.32f));
-        customList.add(Float.valueOf(321.75f));
-        customList.add(Float.valueOf(1.2345f));
+        customList.insert(Float.valueOf(0.12f));
+        customList.insert(Float.valueOf(12.32f));
+        customList.insert(Float.valueOf(321.75f));
+        customList.insert(Float.valueOf(1.2345f));
 
         customList.change(0, Float.valueOf(0.45f));
         customList.change(3, Float.valueOf(255.0f));
@@ -48,10 +48,10 @@ public class CustomListTest {
     @Test
     public void removeTest() {
         CustomList<Float> customList = new CustomList<>();
-        customList.add(Float.valueOf(0.12f));
-        customList.add(Float.valueOf(12.32f));
-        customList.add(Float.valueOf(321.75f));
-        customList.add(Float.valueOf(1.2345f));
+        customList.insert(Float.valueOf(0.12f));
+        customList.insert(Float.valueOf(12.32f));
+        customList.insert(Float.valueOf(321.75f));
+        customList.insert(Float.valueOf(1.2345f));
 
         customList.remove(0);
         customList.remove(2);

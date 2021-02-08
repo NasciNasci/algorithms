@@ -1,10 +1,10 @@
-package DataStructures.Stack.test;
+package dataStructures.Stack.test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.Test;
 
-import DataStructures.Stack.Stack;
+import dataStructures.Stack.Stack;
 
 public class StackTest {
     @Test
