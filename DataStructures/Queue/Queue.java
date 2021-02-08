@@ -9,7 +9,7 @@ import dataStructures.List.CustomList;
  */
 public class Queue<T> extends CustomList<T> {
     public void enqueue(T value) {
-        super.add(value);
+        super.insert(value);
     }
 
     public T retrieve(int index) {
