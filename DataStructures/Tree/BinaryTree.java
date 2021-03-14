@@ -13,10 +13,10 @@ public class BinaryTree<T extends Comparable<T>> {
         }
     }
 
-    private Node head;
+    private Node root;
 
     public void insert(T value) {
-        this.head = this.insert(value, this.head);
+        this.root = this.insert(value, this.root);
     }
 
     private Node insert(T value, Node actualNode) {
@@ -32,8 +32,17 @@ public class BinaryTree<T extends Comparable<T>> {
         return actualNode;
     }
 
+    public void remove(T value) {
+        this.root = this.remove(value, this.root);
+    }
+
+    private Node remove(T value, Node actualNode) {
+
+        return null;
+    }
+
     public boolean find(T value) {
-        return this.find(value, this.head);
+        return this.find(value, this.root);
     }
 
     private boolean find(T value, Node actualNode) {
@@ -49,7 +58,7 @@ public class BinaryTree<T extends Comparable<T>> {
     }
 
     public void show() {
-        this.show(this.head);
+        this.show(this.root);
     }
 
     private void show(Node actualNode) {
